@@ -327,6 +327,32 @@ h1.name{font-size:clamp(38px,5.4vw,68px)}
 @keyframes pulse{50%{opacity:.35}}
 @media(max-width:900px){.hero-in{grid-template-columns:1fr}.photo-wrap{justify-self:center;max-width:340px}.now{margin-left:6%}}
 
+
+/* ===== responsive hero portrait ===== */
+.mobile-photo{
+  display:none;
+  position:relative;
+  width:min(320px,78vw);
+  aspect-ratio:4/5;
+  margin:30px auto 8px;
+}
+.mobile-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 15%;
+  border-radius:10px;
+  border:1px solid var(--line);
+  box-shadow:0 20px 50px -25px rgba(0,0,0,.9);
+}
+@media(max-width:999px){
+  .mobile-photo{display:block}
+}
+@media(max-width:640px){
+  .mobile-photo{width:min(290px,78vw);margin-top:26px}
+}
+
 /* ===== v3: sidebar profile + flat editorial sections ===== */
 body{font-family:'Manrope',system-ui,sans-serif}
 .btn,.cn{font-family:'Manrope',sans-serif}
@@ -414,12 +440,16 @@ section{padding:56px 0}
   <div class="cta fadeup" style="animation-delay:1.15s"><a href="#work" class="btn p">View My Work →</a><a href="#contact" class="btn">Let's Work Together</a></div>
   <div class="social fadeup" style="animation-delay:1.3s">
    <!-- TODO: replace the GitHub URL with your real profile link -->
-   <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub ↗</a>
+   <a href="https://github.com/krishnapraksh" target="_blank" rel="noopener">GitHub ↗</a>
    <a href="https://www.linkedin.com/in/krishnap26" target="_blank" rel="noopener">LinkedIn ↗</a>
    <a href="mailto:krishnapraksh@outlook.com">Email ↗</a>
   </div>
  </div>
  
+ <div class="mobile-photo">
+  <img src="./krishna.jpg" alt="KriShna PrakaSh, DevOps Engineer">
+ </div>
+
  <div class="metrics reveal">
   <div class="m"><b data-n="4.5" data-dec="1" data-sfx="+">4.5+</b><span>Years experience</span></div>
   <div class="m"><b data-n="3" data-dec="0" data-sfx="">3</b><span>Companies</span></div>
@@ -519,7 +549,7 @@ section{padding:56px 0}
    <div class="cl" style="margin-top:36px">
     <a href="mailto:krishnapraksh@outlook.com"><b>Email</b><span>krishnapraksh@outlook.com</span></a>
     <a href="https://www.linkedin.com/in/krishnap26" target="_blank" rel="noopener"><b>LinkedIn</b><span>↗</span></a>
-    <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener"><b>GitHub</b><span>↗</span></a>
+    <a href="https://github.com/krishnapraksh" target="_blank" rel="noopener"><b>GitHub</b><span>↗</span></a>
    </div>
   </div>
   <form class="reveal" id="cf">
