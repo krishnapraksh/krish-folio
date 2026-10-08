@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Krishna Prakash — DevOps Engineer | Cloud Infrastructure & Automation</title>
+<meta name="description" content="Krishna Prakash is a DevOps Engineer with 4.5+ years of experience in AWS, Azure, CI/CD automation, Infrastructure as Code, containers and production operations.">
+<link rel="canonical" href="https://krishnaprakash.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Krishna Prakash — DevOps Engineer">
+<meta property="og:description" content="Reliable cloud infrastructure, automated delivery pipelines and scalable production systems.">
+<meta property="og:url" content="https://krishnaprakash.com/">
+<meta name="theme-color" content="#06080d">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Krishna Prakash","jobTitle":"DevOps Engineer","url":"https://krishnaprakash.com","email":"mailto:krishnapraksh@outlook.com","knowsAbout":["AWS","Azure","CI/CD","Terraform","Docker","Kubernetes","Infrastructure as Code","Observability"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06080d;--bg2:#0b0f17;--card:#0e1420;--line:rgba(255,255,255,.08);--tx:#eceff4;--mut:#8b94a7;--ac:#4cc9f0;--ac2:#6e7bff;--ok:#3ddc97;--wn:#f0b84c;--r:6px;--m:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.65 'Space Grotesk',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.mono{font-family:var(--m)}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,section,footer,.marq{position:relative;z-index:1}
+section{padding:72px 0}
+.eyebrow{font:500 13px var(--m);color:var(--ac);margin-bottom:14px;display:block}
+.eyebrow::before{content:"$ cd ";color:var(--mut)}
+h2{font-size:clamp(28px,4.2vw,48px);line-height:1.1;letter-spacing:-.025em;font-weight:600;max-width:820px}
+.lead{color:var(--mut);font-size:17px;max-width:640px;margin-top:14px}
+.sec-head{margin-bottom:34px}
+.grad{background:linear-gradient(100deg,#fff 20%,var(--ac) 70%,var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:4px;font:600 14px 'Space Grotesk',sans-serif;border:1px solid var(--line);transition:.2s;cursor:pointer;background:transparent;color:var(--tx)}
+.btn.p{background:linear-gradient(120deg,var(--ac),var(--ac2));color:#03050a;border-color:transparent}
+.btn.p:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 rgba(110,123,255,.45)}
+.btn:not(.p):hover{border-color:var(--ac);color:var(--ac)}
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+/* shared panels: square, bordered, with a diff-style gutter on hover */
+.pill,.tech,.job,.case,.sc,.sv,.gr,.dash,.cn{background:var(--card);border:1px solid var(--line);border-radius:var(--r);transition:border-color .2s,box-shadow .2s,background .2s}
+.pill:hover,.tech:hover,.sc:hover,.job:hover{border-color:rgba(76,201,240,.4);box-shadow:inset 2px 0 0 var(--ac)}
+/* git-graph rail: each section is a commit */
+@media(min-width:1400px){
+ section::before{content:"";position:absolute;left:calc(50% - 604px);top:0;bottom:0;width:11px;background:radial-gradient(circle at 50% 80px,var(--bg) 3px,var(--ac) 3.5px,var(--ac) 5px,transparent 5.5px),linear-gradient(var(--line),var(--line)) 50%/1px 100% no-repeat}
+ section::after{content:attr(data-h);position:absolute;left:calc(50% - 668px);width:56px;text-align:right;top:73px;font:500 10.5px/1 var(--m);color:var(--mut)}
+}
+/* nav = status bar */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);background:rgba(6,8,13,.82);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font:600 14px var(--m)}
+.logo::before{content:"~/";color:var(--mut)}
+.logo span{color:var(--ac)}
+.links{display:flex;gap:2px;font:500 13px var(--m);color:var(--mut)}
+.links a{padding:6px 10px;border-radius:4px;transition:.2s}
+.links a::before{content:"./";opacity:.45}
+.links a:hover{color:var(--tx);background:rgba(255,255,255,.05)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.nav-cta{padding:8px 16px;font-size:13px}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width .12s linear}
+.burger{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:4px;background:none;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:4px;padding:0}
+.burger span{width:18px;height:2px;background:var(--tx);transition:.25s;display:block}
+.burger.on span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+/* hero */
+#hero{padding:112px 0 64px;display:flex;align-items:center;min-height:min(100svh,800px)}
+.hero-in{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;width:100%}
+.fadeup{opacity:0;transform:translateY(12px);animation:fu .8s ease forwards}
+@keyframes fu{to{opacity:1;transform:none}}
+.prompt{font:500 13px var(--m);color:var(--mut);margin-bottom:18px;display:flex;align-items:center;flex-wrap:wrap}
+.prompt .pm{color:var(--ok)}.prompt .pc{color:var(--ac);margin-right:8px}
+.cur-b{display:inline-block;width:8px;height:16px;background:var(--ac);vertical-align:-3px;animation:bl 1s steps(1) infinite}
+.prompt .cur-b{height:14px;width:7px;vertical-align:middle;margin-left:2px}
+@keyframes bl{50%{opacity:0}}
+h1.name{font-size:clamp(38px,6vw,74px);line-height:1.02;letter-spacing:-.04em;font-weight:700;white-space:nowrap}
+h1.name .fn{color:#fff}
+.nbar{height:3px;width:96px;margin:20px 0 22px;background:linear-gradient(90deg,var(--ac),var(--ac2),var(--ac));background-size:200% 100%;animation:nb 3s linear infinite,fu .8s ease forwards}
+@keyframes nb{to{background-position:-200% 0}}
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.roles span{font:500 13px var(--m);color:var(--ac);padding:6px 12px;border:1px solid rgba(76,201,240,.35);border-radius:4px;background:rgba(76,201,240,.06)}
+.pipe{display:flex;align-items:center;flex-wrap:wrap;gap:6px 0;margin-bottom:24px;font:500 11px var(--m);color:var(--mut)}
+.pipe span{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border:1px solid var(--line);border-radius:4px;background:rgba(255,255,255,.02);animation:stg 5s infinite;animation-delay:calc(var(--k)*.9s)}
+.pipe span::before{content:"";width:6px;height:6px;border-radius:1px;background:currentColor;opacity:.5}
+.pipe i{width:16px;height:1px;background:var(--line);flex:none}
+@keyframes stg{0%,22%{color:var(--ok);border-color:rgba(61,220,151,.55);background:rgba(61,220,151,.08)}30%,100%{color:var(--mut);border-color:var(--line);background:rgba(255,255,255,.02)}}
+.tagline{font-size:clamp(19px,2.2vw,25px);line-height:1.35;max-width:620px;font-weight:400;letter-spacing:-.01em}
+.sub{color:var(--mut);margin-top:14px;max-width:560px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.social{display:flex;gap:22px;margin-top:22px;font:400 13px var(--m);color:var(--mut)}
+.social a{border-bottom:1px solid transparent;transition:.2s}
+.social a:hover{color:var(--tx);border-color:var(--ac)}
+/* photo = ID badge with corner brackets */
+.photo-wrap{position:relative;justify-self:center;width:min(340px,80vw);aspect-ratio:4/5;opacity:0;animation:fu 1s .4s ease forwards}
+.photo-glow{display:none}
+.photo-frame{position:relative;height:100%;padding:10px;border:1px solid var(--line);background:var(--card);border-radius:var(--r)}
+.photo-frame::before,.photo-frame::after{content:"";position:absolute;width:20px;height:20px;border:2px solid var(--ac)}
+.photo-frame::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+.photo-frame::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.photo-in{height:100%;border-radius:3px;background:linear-gradient(160deg,#111827,#0a0e16);overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.photo-in img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;z-index:2}
+.ph{text-align:center;color:var(--mut);font:500 12px var(--m);padding:20px}
+.ph svg{display:block;margin:0 auto 14px;opacity:.5}
+.chip{position:absolute;z-index:3;font:500 11px var(--m);padding:6px 11px;border-radius:4px;background:rgba(10,14,22,.9);border:1px solid var(--line);color:var(--tx)}
+.chip.a{left:-26px;bottom:60px}.chip.b{right:-22px;top:46px}
+.chip i{color:var(--ac);font-style:normal}
+/* ticker */
+.marq{overflow:hidden;border-block:1px solid var(--line);background:rgba(11,15,23,.7);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mt{display:flex;width:max-content;animation:mq 42s linear infinite}
+.marq:hover .mt{animation-play-state:paused}
+.mt span{font:500 13px var(--m);color:var(--mut);padding:14px 22px;white-space:nowrap;display:inline-flex;align-items:center;gap:22px}
+.mt span::after{content:"/";color:var(--ac);opacity:.55}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about p{color:var(--mut);margin-bottom:14px;font-size:17px}
+.about p b{color:var(--tx);font-weight:500}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px!important}
+.pill{padding:20px}
+.pill h4{font:600 14px var(--m);color:var(--ac);margin-bottom:6px}
+.pill p{font-size:14px;color:var(--mut);margin:0}
+/* approach = pipeline stages */
+#phil{background:rgba(11,15,23,.7);border-block:1px solid var(--line)}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.step{padding:22px;border-left:1px solid var(--line);position:relative}
+.step:last-child{border-right:1px solid var(--line)}
+.step .n{font:500 12px var(--m);color:var(--ok)}
+.step .n::before{content:"stage ";color:var(--mut)}
+.step h3{font-size:26px;letter-spacing:-.02em;margin:8px 0}
+.step p{color:var(--mut);font-size:14.5px}
+.flow::before{content:"";position:absolute;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--ac),var(--ac2));transition:width 2.4s ease}
+.flow.in::before{width:100%}
+/* stack */
+.tabs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--line)}
+.tab{padding:9px 14px;font:500 13px var(--m);color:var(--mut);cursor:pointer;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;transition:.2s}
+.tab:hover{color:var(--tx)}
+.tab.on{color:var(--ac);border-color:var(--ac)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.tech{padding:20px;position:relative;overflow:hidden;min-height:104px;cursor:default}
+.tech::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0),rgba(76,201,240,.12),transparent 60%);opacity:0;transition:.3s}
+.tech:hover::after{opacity:1}
+.tech b{font-size:16px;display:block;position:relative;z-index:1}
+.tech b::before{content:"";display:inline-block;width:7px;height:7px;border-radius:1px;background:var(--ok);margin-right:10px;vertical-align:1px}
+.tech small{display:block;color:var(--mut);font-size:12.5px;margin-top:8px;position:relative;z-index:1;opacity:0;transform:translateY(5px);transition:.3s;line-height:1.5}
+.tech:hover small,.tech:focus small{opacity:1;transform:none}
+@media(hover:none){.tech small{opacity:1;transform:none}}
+/* experience = commit history */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--ac),var(--line))}
+.job{position:relative;margin-bottom:14px;overflow:hidden}
+.job::before{content:"";position:absolute;left:-34px;top:28px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--ac)}
+.job.cur::before{background:var(--ac)}
+.job-h{padding:20px 24px;display:flex;justify-content:space-between;gap:20px;cursor:pointer;align-items:flex-start;width:100%;background:none;border:0;color:inherit;text-align:left;font-family:inherit}
+.job-h h3{font-size:22px;letter-spacing:-.02em}
+.job-h .co{color:var(--ac);font-weight:500}
+.job-h .dt{font:400 12.5px var(--m);color:var(--mut);white-space:nowrap}
+.jr{display:flex;gap:16px;align-items:center}
+.plus{width:26px;height:26px;border:1px solid var(--line);border-radius:4px;display:grid;place-items:center;flex:none;transition:.3s;color:var(--mut)}
+.job.open .plus{transform:rotate(45deg);color:var(--ac)}
+.job-sum{padding:0 24px 18px;color:var(--mut);font-size:15px;margin-top:-8px}
+.job-b{max-height:0;overflow:hidden;transition:max-height .6s ease}
+.job-b-in{padding:0 24px 22px}
+.job ul{list-style:none;display:grid;gap:10px;margin:6px 0 20px}
+.job li{color:#c3c9d6;font-size:15px;padding-left:22px;position:relative}
+.job li::before{content:"+";position:absolute;left:0;color:var(--ok);font:500 13px var(--m)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font:400 12px var(--m);padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--mut)}
+/* cases */
+.case-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+.cn{padding:14px;color:var(--mut);text-align:left;cursor:pointer;font:400 13.5px/1.35 'Space Grotesk',sans-serif}
+.cn small{display:block;font:500 11px var(--m);color:var(--ac);margin-bottom:6px}
+.cn.on,.cn:hover{border-color:rgba(76,201,240,.5);color:var(--tx);background:rgba(76,201,240,.07)}
+.case{padding:30px}
+.case h3{font-size:28px;letter-spacing:-.02em;margin-bottom:4px}
+.case .where{color:var(--ac);font:500 12px var(--m);margin-bottom:20px;display:block}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px 36px;margin:22px 0}
+.cgrid h5{font:500 12px var(--m);color:var(--ac);margin-bottom:6px}
+.cgrid h5::before{content:"# ";color:var(--mut)}
+.cgrid p{color:#c3c9d6;font-size:15px}
+.dg{margin-top:8px;padding:26px 18px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg2)}
+.dg-t{font:500 12px var(--m);color:var(--mut);margin-bottom:20px}
+.dg-t::before{content:"▸ ";color:var(--ac)}
+.dg-row{display:flex;align-items:center;flex-wrap:wrap;justify-content:center}
+.nd{padding:11px 15px;border:1px solid var(--line);border-radius:4px;background:var(--card);font-size:13.5px;font-weight:500;cursor:pointer;opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s,border-color .2s,box-shadow .2s;transition-delay:calc(var(--i)*.3s),calc(var(--i)*.3s),0s,0s}
+.nd:hover,.nd.act{border-color:var(--ac);box-shadow:0 0 0 3px rgba(76,201,240,.12)}
+.cn2{width:40px;height:2px;background:var(--line);position:relative;opacity:0;transition:opacity .5s;transition-delay:calc(var(--i)*.3s + .2s);overflow:hidden;flex:none}
+.cn2::after{content:"";position:absolute;top:0;left:-14px;width:14px;height:2px;background:var(--ac);animation:flow 1.8s linear infinite;animation-delay:calc(var(--i)*.3s)}
+@keyframes flow{to{left:42px}}
+.dg.in .nd{opacity:1;transform:none}.dg.in .cn2{opacity:1}
+.dg-info{margin-top:22px;min-height:58px;padding:13px 16px;border-radius:4px;background:rgba(76,201,240,.06);border:1px solid rgba(76,201,240,.2);font-size:14px;color:#c3c9d6}
+.dg-info b{color:var(--ac);font-weight:600}
+.dg-row.sub{margin-top:14px}
+/* terminals */
+.tgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px;align-items:stretch}
+.term{border:1px solid var(--line);border-radius:var(--r);background:#080b12;overflow:hidden;display:flex;flex-direction:column}
+.term-bar{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:center}
+.term-bar i{width:9px;height:9px;border-radius:2px;background:#2a3140}
+.term-bar i:nth-child(1){background:var(--wn)}.term-bar i:nth-child(2){background:var(--ok)}.term-bar i:nth-child(3){background:var(--ac)}
+.term-bar span{margin-left:10px;font:400 12px var(--m);color:var(--mut)}
+.term-b{padding:20px;font:400 14px/1.75 var(--m);flex:1}
+.term-b .c{color:var(--ac)}.term-b .o{color:#c3c9d6;margin-bottom:6px;padding-left:2px}
+.logs{font-size:13px!important;line-height:1.7!important;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.lg{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:lgin .5s ease both;color:#c3c9d6}
+.lg em{font-style:normal;color:#5b6477;margin-right:10px}
+.lg b{color:var(--ok);font-weight:500}
+.lg u{text-decoration:none;color:var(--ac)}
+.lg.info{color:var(--mut)}
+@keyframes lgin{from{opacity:0;transform:translateY(8px)}}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:36px!important}
+.m{background:var(--bg);padding:28px 22px}
+.m b{display:block;font:600 clamp(22px,2.4vw,32px)/1.2 var(--m);letter-spacing:-.04em}
+.m span{color:var(--mut);font-size:14px}
+/* security / observability */
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sc{padding:24px}
+.sc svg{margin-bottom:14px;stroke:var(--ac)}
+.sc h4{margin-bottom:6px}
+.sc p{color:var(--mut);font-size:14px}
+.dash{padding:22px;margin-top:28px}
+.dash-h{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:18px;font:400 12px var(--m);color:var(--mut)}
+.dash-h em{font-style:normal;color:var(--wn);border:1px solid rgba(240,184,76,.35);padding:2px 9px;border-radius:4px}
+.graphs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gr{padding:14px;background:var(--bg2)}
+.gr small{font:400 11px var(--m);color:var(--mut)}
+.gr svg{width:100%;height:70px;margin-top:8px}
+.gr path{fill:none;stroke:var(--ac);stroke-width:1.6;stroke-dasharray:400;stroke-dashoffset:400}
+.dash.in .gr path{animation:draw 2.4s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.loop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:22px;font:500 13px var(--m)}
+.loop span{padding:7px 13px;border:1px solid var(--line);border-radius:4px;color:var(--mut);background:var(--card)}
+.loop i{color:var(--ac);font-style:normal}
+/* notes = backlog */
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:12px}
+.note{padding:20px;border:1px dashed rgba(255,255,255,.14);border-radius:var(--r);background:rgba(14,20,32,.6);transition:.2s}
+.note:hover{border-color:rgba(76,201,240,.4)}
+.note small{font:500 11px var(--m);color:var(--wn)}
+.note small::before{content:"○ "}
+.note h4{margin:8px 0 4px;font-size:17px;letter-spacing:-.01em}
+.note p{color:var(--mut);font-size:13.5px}
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.cl a{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;padding:16px 0;border-bottom:1px solid var(--line);color:var(--mut);transition:.2s}
+.cl a:hover{color:var(--tx);padding-left:8px}
+.cl a b{color:var(--tx);font:500 14px var(--m)}
+.cl a span{word-break:break-all;text-align:right}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:14px 16px;border-radius:4px;border:1px solid var(--line);background:var(--card);color:var(--tx);font:400 14px var(--m);outline:none;transition:.2s}
+input:focus,textarea:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(76,201,240,.12)}
+textarea{min-height:140px;resize:vertical}
+.fine{font-size:12.5px;color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font:400 13px var(--m);background:rgba(6,8,13,.8)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* responsive */
+@media(max-width:900px){
+ .links{display:none;position:fixed;top:56px;left:0;right:0;flex-direction:column;gap:0;background:rgba(6,8,13,.97);border-bottom:1px solid var(--line);padding:6px 24px 14px}
+ .links.open{display:flex}.links a{padding:14px 0;font-size:15px;border-bottom:1px solid var(--line);border-radius:0}.links a:last-child{border:0}
+ .burger{display:flex}
+ #hero{padding:92px 0 48px}.hero-in{grid-template-columns:1fr;gap:28px}
+ .photo-wrap{order:-1;width:min(240px,64vw)}.chip.a{left:-8px}.chip.b{right:-8px}
+ .about,.contact,.tgrid{grid-template-columns:1fr}
+ .pillars,.flow,.metrics{grid-template-columns:1fr 1fr}
+ .case-nav{grid-template-columns:1fr 1fr}
+ .cards3,.graphs{grid-template-columns:1fr}
+}
+@media(max-width:700px){.dg-row{flex-wrap:wrap;justify-content:flex-start;gap:8px}.cn2{display:none}}
+@media(max-width:640px){
+ section{padding:44px 0}.wrap{padding:0 20px}
+ .sec-head{margin-bottom:22px}.lead{font-size:15px}
+ h1.name{font-size:clamp(34px,10.5vw,46px);white-space:normal}h1.name .fn,h1.name .ln{display:block}
+ .cta{flex-direction:column}.cta .btn{justify-content:center;width:100%}
+ .social{flex-wrap:wrap;gap:18px}
+ .pipe i{display:none}.pipe{gap:6px}
+ .step{border-top:1px solid var(--line);padding:16px 12px}.step h3{font-size:20px}.step p{font-size:13px}
+ .tl{padding-left:22px}.job::before{left:-22px;top:22px}
+ .job-h{flex-direction:column;gap:8px;padding:16px}.jr{width:100%;justify-content:space-between}
+ .job-sum{padding:0 16px 14px}.job-b-in{padding:0 16px 18px}
+ .case-nav{display:flex;overflow-x:auto;gap:8px;margin:0 -20px 16px;padding:0 20px 6px;scrollbar-width:none}.cn{flex:0 0 190px}
+ .case{padding:16px}.case h3{font-size:21px}.cgrid{grid-template-columns:1fr;gap:16px}
+ .term-b{font-size:12.5px;padding:14px}.logs{min-height:200px}
+ .m{padding:18px 14px}
+ .notes{grid-template-columns:1fr;gap:8px}.note{padding:12px 14px}.note p{display:none}
+ .tech-grid{grid-template-columns:1fr 1fr;gap:10px}.tech{padding:14px;min-height:80px}
+ footer .wrap{flex-direction:column;align-items:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+/* ---- brighter, calmer pass ---- */
+:root{--mut:#aab3c4;--card:#111a2b;--line:rgba(255,255,255,.12)}
+body{color:#f2f5fa}
+.lead,.about p,.pill p,.step p,.sc p,.note p,.job-sum,.sub,.tech small,.m span{color:#b9c1d0}
+.job li,.cgrid p,.dg-info{color:#dde2ec}
+.pill,.tech,.job,.case,.sc,.sv,.gr,.dash,.cn{background:linear-gradient(180deg,#152033,#101827);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 12px 30px -20px rgba(0,0,0,.9)}
+.gr,.dg{background:#0c1422}
+.term{background:#0b111c}
+#phil,#experience,#terminal,#observability{background:rgba(12,19,34,.6)!important}
+#hero{background:radial-gradient(ellipse 70% 70% at 80% 0%,rgba(76,201,240,.13),transparent 70%),radial-gradient(ellipse 50% 60% at 0% 100%,rgba(110,123,255,.08),transparent 70%)}
+.marq{background:rgba(12,19,34,.85)}
+.m{background:#0f1726}
+.note{background:#0f1726;border-color:rgba(255,255,255,.2)}
+.tab{color:#b9c1d0}
+.links{color:#c3cad8}
+nav{background:rgba(8,12,20,.9)}
+
+/* ---- photo blends into the page: no frame, no chips, soft faded edges ---- */
+.photo-wrap{width:min(440px,84vw)}
+.photo-frame{padding:0;border:0;background:none;border-radius:0}
+.photo-frame::before,.photo-frame::after{display:none}
+.photo-in{border-radius:0;background:none;overflow:visible}
+.photo-in img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(180deg,transparent,#000 12%,#000 68%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 22%,#000 78%,transparent),linear-gradient(180deg,transparent,#000 12%,#000 68%,transparent);mask-composite:intersect}
+.chip{display:none}
+@media(max-width:900px){.photo-wrap{width:min(300px,76vw)}}
+
+/* ---- bigger portrait that fills its column + a factual caption ---- */
+.hero-in{grid-template-columns:1.05fr .95fr;gap:32px}
+h1.name{font-size:clamp(38px,5.4vw,68px)}
+.photo-wrap{width:100%;max-width:560px;aspect-ratio:auto;justify-self:end}
+.photo-frame{height:auto;aspect-ratio:4/5}
+.now{position:relative;z-index:3;display:flex;gap:12px;align-items:flex-start;margin:-34px 0 0 12%;padding-top:14px;border-top:1px solid var(--line);max-width:380px}
+.now .dot{margin-top:7px;flex:none}
+.now b{display:block;font:500 12px var(--m);color:var(--ok)}
+.now span:not(.dot){display:block;font-size:16px;color:#f2f5fa;margin-top:2px}
+.now small{display:block;font:400 12px var(--m);color:var(--mut);margin-top:4px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr}.photo-wrap{justify-self:center;max-width:340px}.now{margin-left:6%}}
+
+/* ===== v3: sidebar profile + flat editorial sections ===== */
+body{font-family:'Manrope',system-ui,sans-serif}
+.btn,.cn{font-family:'Manrope',sans-serif}
+h2{font-weight:700;letter-spacing:-.03em}
+section::before,section::after{display:none!important}
+#phil,#experience,#terminal,#observability,section[style]{background:none!important;border:0!important}
+.wrap{max-width:1020px;padding:0 48px}
+.side{display:none}
+#hero{display:block;min-height:0;padding:96px 0 40px;background:none}
+.hero-in{grid-template-columns:1fr;gap:0}
+h1.name{font-size:clamp(40px,5vw,64px)}
+.tagline{font-size:clamp(20px,2.4vw,28px);max-width:720px}
+.sub{max-width:640px}
+.metrics{margin-top:44px!important;background:none;border:0;border-top:1px solid var(--line);border-radius:0;gap:0}
+.m{background:none;border-right:1px solid var(--line);padding:22px 20px}.m:last-child{border:0}.m:first-child{padding-left:0}
+.sec-head{display:grid;grid-template-columns:170px 1fr;gap:6px 24px;border-top:1px solid var(--line);padding-top:24px;margin-bottom:36px}
+.sec-head .eyebrow{grid-column:1;grid-row:1/span 2;margin:6px 0 0}
+.sec-head h2,.sec-head .lead{grid-column:2}
+.sec-head .lead{margin-top:6px}
+.pillars{gap:0;border-top:1px solid var(--line)}
+.pill{background:none;border:0;border-right:1px solid var(--line);border-radius:0;box-shadow:none;padding:20px 20px 4px}
+.pill:first-child{padding-left:0}.pill:last-child{border:0}
+.tech-grid{gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.tech{background:rgba(255,255,255,.015);border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+.tech:hover{background:rgba(76,201,240,.07)}
+.tl{padding-left:0}.tl::before,.job::before{display:none}
+.job{background:none;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;margin:0}
+.job:hover{box-shadow:none;background:rgba(255,255,255,.02)}
+.job-h{padding:22px 0}.job-sum{padding:0 0 18px}.job-b-in{padding:0 0 22px}
+.case-nav{gap:0;border-bottom:1px solid var(--line)}
+.cn{background:none;border:0;border-bottom:2px solid transparent;border-radius:0;box-shadow:none;padding:12px 10px 12px 0;margin-bottom:-1px}
+.cn.on,.cn:hover{background:none;border-bottom-color:var(--ac)}
+.case{background:none;border:0;border-radius:0;box-shadow:none;padding:26px 0}
+.cards3{gap:28px}
+.sc{background:none;border:0;border-top:2px solid var(--ac);border-radius:0;box-shadow:none;padding:18px 0 0}
+.sc:hover{box-shadow:none}
+.notes{display:block;border-top:1px solid var(--line)}
+.note{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;padding:14px 0}
+.note h4{order:1;margin:0;font-size:16px}.note small{order:2;white-space:nowrap}.note p{display:none}
+footer{background:none}
+@media(min-width:1000px){
+ nav{top:0;bottom:0;right:auto;width:290px;border:0;border-right:1px solid var(--line);background:#090e18;backdrop-filter:none;overflow-y:auto}
+ nav .wrap{height:100%;max-width:none;padding:26px 24px;flex-direction:column;align-items:stretch;justify-content:flex-start}
+ .logo,.prog{display:none}
+ .side{display:block}
+ .av{display:grid;place-items:center;position:relative;overflow:hidden;width:100%;aspect-ratio:4/5;border-radius:10px;border:1px solid var(--line);background:linear-gradient(160deg,#111b2e,#0a0f1a);font:600 40px var(--m);color:var(--mut)}
+ .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%}
+ .side b{display:block;margin-top:16px;font-size:20px;letter-spacing:-.02em}
+ .side small{display:block;font:400 12px var(--m);color:var(--mut);margin-top:2px}
+ .links{flex-direction:column;gap:2px;margin:24px 0;font-size:14px}
+ .links a{padding:9px 12px;border-radius:4px;border-left:2px solid transparent}
+ .links a.on{color:var(--ac);background:rgba(76,201,240,.08);border-left-color:var(--ac)}
+ .nav-r{margin-top:auto}.nav-cta{width:100%;justify-content:center}
+ header,section,footer,.marq{margin-left:290px}
+}
+@media(max-width:999px){.sec-head{grid-template-columns:1fr}.sec-head .eyebrow{grid-row:auto}.sec-head h2,.sec-head .lead{grid-column:1}.wrap{padding:0 24px}.metrics{grid-template-columns:1fr 1fr}.m{border-bottom:1px solid var(--line)}.pillars{grid-template-columns:1fr 1fr}.pill{border-bottom:1px solid var(--line)}}
+@media(max-width:640px){.wrap{padding:0 20px}#hero{padding:78px 0 24px}.note small{display:none}}
+.sec-head h2,.about h2{font-size:clamp(26px,3.3vw,40px)}
+.m b{font-size:clamp(20px,2vw,27px)}
+.sec-head{margin-bottom:28px}
+section{padding:56px 0}
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<nav><div class="wrap">
+<a href="#hero" class="side"><span class="av">KP<img src="krishna.jpg" alt="KriShna PrakaSh, DevOps Engineer" onerror="this.remove()"></span><b>KriShna PrakaSh</b><small>DevOps Engineer · AWS · Azure</small></a>
+<a href="#hero" class="logo">KriShna<span>.</span>PrakaSh</a>
+<div class="links" id="links"><a href="#about">About</a><a href="#stack">Stack</a><a href="#experience">Experience</a><a href="#work">Work</a></div>
+<div class="nav-r"><a href="#contact" class="btn nav-cta">Contact</a><button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+<div class="prog" id="prog"></div></nav>
+
+<header id="hero">
+
+<div class="wrap hero-in">
+ <div>
+    <div class="prompt fadeup" style="animation-delay:.1s"><span class="pm">krishna@devops</span><span class="pc">:~$</span> <span id="whoami"></span><span class="cur-b"></span></div>
+  <h1 class="name"><span class="fn">KriShna</span> <span class="ln grad">PrakaSh</span></h1>
+  <div class="nbar fadeup" style="animation-delay:.5s"></div>
+  <div class="roles fadeup" style="animation-delay:.7s"><span>DevOps Engineer</span><span>Cloud Infrastructure</span><span>Automation</span></div>
+  <div class="pipe fadeup" style="animation-delay:.9s" aria-hidden="true"><span style="--k:0">commit</span><i></i><span style="--k:1">build</span><i></i><span style="--k:2">test</span><i></i><span style="--k:3">deploy</span><i></i><span style="--k:4">monitor</span></div>
+  <p class="tagline fadeup" style="animation-delay:.85s">Building reliable cloud infrastructure, automated delivery pipelines, and scalable production systems.</p>
+  <p class="sub fadeup" style="animation-delay:1s">4.5+ years of experience across cloud infrastructure, CI/CD automation, containerized applications, infrastructure as code, monitoring, and production operations.</p>
+  <div class="cta fadeup" style="animation-delay:1.15s"><a href="#work" class="btn p">View My Work →</a><a href="#contact" class="btn">Let's Work Together</a></div>
+  <div class="social fadeup" style="animation-delay:1.3s">
+   <!-- TODO: replace the GitHub URL with your real profile link -->
+   <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub ↗</a>
+   <a href="https://www.linkedin.com/in/krishnap26" target="_blank" rel="noopener">LinkedIn ↗</a>
+   <a href="mailto:krishnapraksh@outlook.com">Email ↗</a>
+  </div>
+ </div>
+ 
+ <div class="metrics reveal">
+  <div class="m"><b data-n="4.5" data-dec="1" data-sfx="+">4.5+</b><span>Years experience</span></div>
+  <div class="m"><b data-n="3" data-dec="0" data-sfx="">3</b><span>Companies</span></div>
+  <div class="m"><b>AWS + Azure</b><span>Cloud platforms</span></div>
+  <div class="m"><b>Multiple</b><span>Production environments</span></div>
+ </div>
+</div>
+</header>
+
+<div class="marq" aria-hidden="true"><div class="mt"><span>AWS</span><span>Azure</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span><span>Jenkins</span><span>CloudFormation</span><span>Prometheus</span><span>Grafana</span><span>CloudWatch</span><span>Python</span><span>Bash</span><span>AWS</span><span>Azure</span><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>GitHub Actions</span><span>Jenkins</span><span>CloudFormation</span><span>Prometheus</span><span>Grafana</span><span>CloudWatch</span><span>Python</span><span>Bash</span></div></div>
+
+<section id="about" data-h="46b3931"><div class="wrap">
+ <div class="about">
+  <div class="reveal">
+   <span class="eyebrow">~/about</span>
+   <h2>Engineering systems, <span class="grad">not just deploying them.</span></h2>
+  </div>
+  <div class="reveal">
+   <p>I'm a DevOps Engineer with <b>4.5+ years</b> of hands-on experience building and running cloud infrastructure, from e-commerce platforms to IoT telemetry pipelines to a cloud-native gaming platform.</p>
+   <p>My work sits between development and operations: <b>designing infrastructure, automating deployments, managing containerized workloads on AWS and Azure</b>, and keeping production systems observable and secure.</p>
+   <p>I care about repeatable infrastructure, dependable release workflows, and giving development teams a platform they can ship on with confidence.</p>
+  </div>
+ </div>
+ <div class="pillars reveal" style="margin-top:56px" id="pillars">
+  <div class="pill"><h4>Infrastructure</h4><p>Cloud environments on AWS and Azure, defined as code.</p></div>
+  <div class="pill"><h4>Delivery</h4><p>CI/CD pipelines across dev, staging and production.</p></div>
+  <div class="pill"><h4>Operations</h4><p>Containers, databases, monitoring and troubleshooting.</p></div>
+  <div class="pill"><h4>Collaboration</h4><p>Working with developers, QA and business teams.</p></div>
+ </div>
+</div></section>
+
+<section id="phil" data-h="d14ffd4"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/approach</span><h2>How I think about <span class="grad">infrastructure.</span></h2>
+ <p class="lead">Reduce manual effort, improve deployment reliability, keep cloud infrastructure well maintained, and help engineering teams deliver software efficiently.</p></div>
+ <div class="flow reveal">
+  <div class="step"><span class="n">01</span><h3>Automate</h3><p>Replace repeated manual steps with pipelines and infrastructure as code.</p></div>
+  <div class="step"><span class="n">02</span><h3>Deploy</h3><p>Ship consistently across environments with predictable releases.</p></div>
+  <div class="step"><span class="n">03</span><h3>Observe</h3><p>Logging, monitoring and alerting so issues surface early.</p></div>
+  <div class="step"><span class="n">04</span><h3>Improve</h3><p>Use what production teaches to refine the next release.</p></div>
+ </div>
+</div></section>
+
+<section id="stack" data-h="fac2a47"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/stack</span><h2>The stack, <span class="grad">organized by what it does.</span></h2></div>
+ <div class="tabs reveal" id="tabs"></div>
+ <div class="tech-grid" id="techgrid"></div>
+</div></section>
+
+<section id="experience" data-h="d6e0479" style="background:rgba(12,19,34,.6);border-block:1px solid var(--line)"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/experience</span><h2>Career progression, <span class="grad">three roles.</span></h2>
+ <p class="lead">From CI/CD automation, to multi-cloud IoT infrastructure, to operating a cloud-native platform. Open a role to see the detail.</p></div>
+ <div class="tl" id="tl"></div>
+</div></section>
+
+<section id="work" data-h="67e92c8"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/work</span><h2>Systems I've <span class="grad">worked on.</span></h2>
+ <p class="lead">Architecture shown here is a generic representation. No internal details, accounts or customer information are published.</p></div>
+ <div class="case-nav reveal" id="casenav"></div>
+ <div class="case reveal" id="casebox"></div>
+</div></section>
+
+<section id="terminal" data-h="ede997b" style="background:rgba(12,19,34,.6);border-block:1px solid var(--line)"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/snapshot</span><h2>A quick <span class="grad">overview.</span></h2></div>
+ <div class="tgrid"><div class="term reveal"><div class="term-bar"><i></i><i></i><i></i><span>krishnaprakash.com — zsh</span></div><div class="term-b" id="term"></div></div><div class="term reveal"><div class="term-bar"><i></i><i></i><i></i><span>ci.log — sample stream (illustrative)</span></div><div class="term-b logs" id="logs"></div></div></div>
+ 
+</div></section>
+
+<section id="security" data-h="e91e634"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/security</span><h2>Secure by <span class="grad">configuration.</span></h2>
+ <p class="lead">Security work as part of day-to-day infrastructure operations.</p></div>
+ <div class="cards3 reveal">
+  <div class="sc"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.500-1-8-4-8-9V6z"/></svg><h4>AWS WAF</h4><p>Web application protection for hosted platforms.</p></div>
+  <div class="sc"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3"/></svg><h4>IAM &amp; Access Control</h4><p>Policies and permissions scoped to what each service needs.</p></div>
+  <div class="sc"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg><h4>Secure Infrastructure</h4><p>Custom domains and cloud configuration hardened across environments.</p></div>
+ </div>
+</div></section>
+
+<section id="observability" data-h="6d0982d" style="background:rgba(12,19,34,.6);border-block:1px solid var(--line)"><div class="wrap">
+ <div class="sec-head reveal"><span class="eyebrow">~/observability</span><h2>If you can't see it, <span class="grad">you can't run it.</span></h2>
+ <p class="lead">CloudWatch, Sentry, Prometheus, Grafana, Azure Monitor and Application Insights, used across projects for monitoring, logging and alerting.</p></div>
+ <div class="loop reveal"><span>Deploy</span><i>→</i><span>Observe</span><i>→</i><span>Detect</span><i>→</i><span>Investigate</span><i>→</i><span>Improve</span></div>
+ <div class="dash reveal" id="dash">
+  <div class="dash-h"><span>monitoring-dashboard.example</span><em>Illustrative visualization · not real production data</em></div>
+  <div class="graphs">
+   <div class="gr"><small>Request rate</small><svg viewBox="0 0 200 70" preserveAspectRatio="none"><path d="M0 50 C20 30 35 55 55 35 S90 20 110 38 150 55 170 28 190 30 200 22"/></svg></div>
+   <div class="gr"><small>CPU utilization</small><svg viewBox="0 0 200 70" preserveAspectRatio="none"><path d="M0 40 C25 44 40 25 65 30 S100 50 125 32 165 20 200 34"/></svg></div>
+   <div class="gr"><small>Error rate</small><svg viewBox="0 0 200 70" preserveAspectRatio="none"><path d="M0 60 C30 58 50 62 75 55 S110 40 130 56 170 60 200 54"/></svg></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="contact" data-h="2f8a6bf"><div class="wrap">
+ <div class="contact">
+  <div class="reveal">
+   <span class="eyebrow">~/contact</span>
+   <h2>Let's build something <span class="grad">reliable.</span></h2>
+   <div class="cl" style="margin-top:36px">
+    <a href="mailto:krishnapraksh@outlook.com"><b>Email</b><span>krishnapraksh@outlook.com</span></a>
+    <a href="https://www.linkedin.com/in/krishnap26" target="_blank" rel="noopener"><b>LinkedIn</b><span>↗</span></a>
+    <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener"><b>GitHub</b><span>↗</span></a>
+   </div>
+  </div>
+  <form class="reveal" id="cf">
+   <input name="name" placeholder="Name" required autocomplete="name">
+   <input name="email" type="email" placeholder="Email" required autocomplete="email">
+   <textarea name="message" placeholder="Message" required></textarea>
+   <button class="btn p" type="submit" style="justify-content:center">Send Message</button>
+   <p class="fine">Opens your email app with the message prefilled. To receive form submissions directly, connect a form service such as Formspree or Netlify Forms.</p>
+  </form>
+ </div>
+</div></section>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> KriShna PrakaSh · krishnaprakash.com</span><span>DevOps Engineer</span></div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+$('#yr').textContent=new Date().getFullYear();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+const watch=()=>document.querySelectorAll('.reveal,.dg,.dash').forEach(el=>{if(!el.dataset.w){el.dataset.w=1;io.observe(el)}});
+
+/* background: faint dot grid with a slow diagonal wave. One colour, no flashing */
+(()=>{const c=$('#bg'),x=c.getContext('2d'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let w,h,G,T=0,last=performance.now();
+function rs(){const d=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);G=w<700?28:34;draw()}
+function draw(){x.clearRect(0,0,w,h);
+ for(let py=G/2;py<h;py+=G)for(let px=G/2;px<w;px+=G){
+  const v=.5+.5*Math.sin(px*.011+py*.007-T*.9),s=1.4+v*1.6;
+  x.fillStyle='rgba(76,201,240,'+(.07+v*.25).toFixed(3)+')';x.fillRect(px-s/2,py-s/2,s,s)}}
+rs();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(rs,150)});
+if(!reduce)requestAnimationFrame(function f(n){T+=Math.min(.05,(n-last)/1000);last=n;draw();requestAnimationFrame(f)})})();
+
+/* stack */
+const STACK={
+'Cloud':[['AWS','Cloud infrastructure · Production workloads'],['Azure','Cloud services · Multi-cloud work']],
+'CI/CD':[['GitHub Actions','Multi-environment pipelines'],['Jenkins','Git · Maven · SonarQube pipelines']],
+'Infrastructure as Code':[['Terraform','Infrastructure as Code · Automation · Repeatable infrastructure'],['CloudFormation','AWS infrastructure templates'],['AWS SAM','Serverless application deployment'],['ARM Templates','Azure resource templates']],
+'Containers':[['Docker','Building and deploying containers'],['Kubernetes','Container orchestration']],
+'Monitoring':[['CloudWatch','AWS metrics and logs'],['Azure Monitor','Azure metrics and alerts'],['Prometheus','Metrics collection'],['Grafana','Dashboards'],['Sentry','Error tracking']],
+'Databases':[['MongoDB','Document database'],['Redis','In-memory data store'],['PostgreSQL','Relational database'],['TimescaleDB','Time-series data']],
+'Version Control':[['Git','Source control'],['Bitbucket','Repository hosting']],
+'Scripting':[['Python','Automation scripting'],['Bash','Shell automation']]};
+const tabs=$('#tabs'),grid=$('#techgrid');
+function showTab(k){[...tabs.children].forEach(t=>t.classList.toggle('on',t.dataset.k===k));
+ grid.innerHTML=STACK[k].map(([n,d])=>`<div class="tech" tabindex="0"><b>${n}</b><small>${d}</small></div>`).join('');
+ grid.querySelectorAll('.tech').forEach(t=>t.addEventListener('mousemove',e=>{const r=t.getBoundingClientRect();t.style.setProperty('--mx',e.clientX-r.left+'px');t.style.setProperty('--my',e.clientY-r.top+'px')}))}
+Object.keys(STACK).forEach(k=>{const b=document.createElement('button');b.className='tab';b.dataset.k=k;b.textContent=k;b.onclick=()=>showTab(k);tabs.appendChild(b)});
+showTab('Cloud');
+
+/* experience */
+const JOBS=[
+{role:'DevOps Engineer',co:'Underpin Technology',dt:'10/2025 – Present',cur:1,sum:'Operating a cloud-native platform on AWS, from CI/CD to databases to monitoring.',
+ pts:['Designed and implemented CI/CD pipelines using GitHub Actions for Development, Staging, and Production environments.','Deployed and managed containerized microservices on AWS ECS Fargate.','Hosted frontend applications and Unity WebGL games using AWS Amplify, S3, and CloudFront.','Supported migration from a monolithic architecture to a microservices-based platform.','Implemented monitoring, logging, and alerting using CloudWatch and Sentry.','Managed MongoDB, Redis, PostgreSQL, and TimescaleDB databases across multiple environments.','Utilized TimescaleDB hypertables for high-volume player activity and gaming analytics data.','Configured AWS WAF, IAM policies, and custom domains to improve platform security.','Collaborated with development teams to automate deployments and improve release efficiency.'],
+ t:['AWS','ECS Fargate','S3','CloudFront','Amplify','WAF','CloudWatch','Route 53','IAM','GitHub Actions','MongoDB','Redis','PostgreSQL','TimescaleDB']},
+{role:'Cloud Engineer',co:'IoTfy Solutions Private Limited',dt:'09/2024 – 08/2025',sum:'A multi-cloud engineering role spanning AWS and Azure for IoT workloads.',
+ pts:['Designed and deployed scalable cloud infrastructure across AWS and Azure.','Automated infrastructure provisioning using Terraform, CloudFormation, and AWS SAM.','Built serverless data processing pipelines.','Worked with IoT telemetry ingestion.','Developed analytics-ready storage solutions.','Implemented monitoring and alerting.','Strengthened cloud security through IAM and access controls.','Collaborated with development and business teams.'],
+ t:['AWS','Azure','Terraform','CloudFormation','AWS SAM','Lambda','Kinesis','S3','IoT Hub','Function Apps','CloudWatch','Azure Monitor','Application Insights']},
+{role:'DevOps Engineer',co:'Techriffs Info Systems',dt:'05/2022 – 09/2024',sum:'Cloud infrastructure automation for an e-commerce platform.',
+ pts:['Developed Jenkins CI/CD pipelines integrating Git, Maven, and SonarQube.','Built and deployed Docker containers.','Automated AWS infrastructure using modular Terraform.','Implemented Prometheus and Grafana monitoring.','Worked with development and QA teams on DevOps practices.'],
+ t:['AWS','Jenkins','Docker','Terraform','SonarQube','Prometheus','Grafana']}];
+$('#tl').innerHTML=JOBS.map((j,i)=>`<div class="job reveal ${j.cur?'cur':''}"><button class="job-h" aria-expanded="false"><div><h3>${j.role}</h3><div class="co">${j.co}</div></div><div class="jr"><span class="dt">${j.dt}</span><span class="plus">+</span></div></button><p class="job-sum">${j.sum}</p><div class="job-b"><div class="job-b-in"><ul>${j.pts.map(p=>`<li>${p}</li>`).join('')}</ul><div class="tags">${j.t.map(t=>`<span>${t}</span>`).join('')}</div></div></div></div>`).join('');
+document.querySelectorAll('.job').forEach((j,i)=>{const b=j.querySelector('.job-b');const t=()=>{const o=j.classList.toggle('open');b.style.maxHeight=o?b.scrollHeight+'px':0;j.querySelector('.job-h').setAttribute('aria-expanded',o)};j.querySelector('.job-h').onclick=t;if(i===0)setTimeout(t,300)});
+
+/* diagrams */
+function diagram(title,rows){return `<div class="dg"><div class="dg-t">${title}</div>${rows.map((r,ri)=>`<div class="dg-row ${ri?'sub':''}">${r.map((n,i)=>`${i?`<div class="cn2" style="--i:${i}"></div>`:''}<div class="nd" style="--i:${i}" data-t="${n[0]}" data-d="${n[1]}">${n[0]}</div>`).join('')}</div>`).join('')}<div class="dg-info"><b>Hover or tap a node</b> to see what it does in this flow.</div></div>`}
+function bind(box){box.querySelectorAll('.dg').forEach(dg=>{const info=dg.querySelector('.dg-info');dg.querySelectorAll('.nd').forEach(n=>{const s=()=>{dg.querySelectorAll('.nd').forEach(x=>x.classList.remove('act'));n.classList.add('act');info.innerHTML=`<b>${n.dataset.t}</b> — ${n.dataset.d}`};n.onmouseenter=s;n.onclick=s})})}
+const CASES=[
+{n:'Cloud-Native Microservices Platform',w:'Underpin Technology · 2025 – Present',
+ ctx:'A gaming platform moving from a monolithic architecture to microservices, needing consistent deployments and dependable operations across several environments.',
+ role:'Deployed and managed containerized microservices on AWS ECS Fargate, supported the monolith-to-microservices migration, and managed the supporting databases and monitoring.',
+ app:'Containerized services run on ECS Fargate behind managed AWS networking, with logging and alerting through CloudWatch and Sentry, and WAF and IAM protecting access.',
+ imp:'A more consistent, observable and secure deployment setup across Development, Staging and Production, and a smoother path for teams moving services off the monolith.',
+ tech:['AWS','ECS Fargate','CloudWatch','Sentry','WAF','IAM','MongoDB','Redis','PostgreSQL','TimescaleDB'],
+ dg:[['Delivery pipeline to production',[[['Developer','Commits code to the repository'],['GitHub','Source control and pull requests'],['GitHub Actions','Automated pipelines per environment'],['Container Build','Builds the service image'],['AWS','Cloud infrastructure layer'],['ECS Fargate','Runs containerized microservices'],['CloudWatch / Sentry','Logging, monitoring and alerting'],['Production','Live environment']]]]]},
+{n:'CI/CD Automation Platform',w:'Underpin Technology · Techriffs Info Systems',
+ ctx:'Teams needed repeatable ways to build, test and release across multiple environments without manual deployment steps.',
+ role:'Designed and implemented GitHub Actions pipelines for Development, Staging and Production, and earlier built Jenkins pipelines integrating Git, Maven and SonarQube.',
+ app:'Pipelines standardize build, quality checks and deployment, with environment-specific stages so the same process runs every release.',
+ imp:'Less manual deployment effort, more reliable releases, and improved release efficiency for development teams.',
+ tech:['GitHub Actions','Jenkins','Maven','SonarQube','Docker'],
+ dg:[['Jenkins pipeline (e-commerce platform)',[[['Developer','Pushes code'],['Git','Triggers the pipeline'],['Jenkins','Orchestrates the build'],['Maven Build','Compiles and packages'],['SonarQube','Code quality analysis'],['Docker','Builds the container image'],['Deployment','Releases to AWS'],['Monitoring','Prometheus and Grafana']]]]]},
+{n:'Unity WebGL Deployment Infrastructure',w:'Underpin Technology · 2025 – Present',
+ ctx:'Frontend applications and Unity WebGL games needed fast, dependable global delivery to players.',
+ role:'Hosted frontends and Unity WebGL games with AWS Amplify, S3 and CloudFront, with custom domains and security configuration.',
+ app:'Build pipelines publish static assets to S3, served through CloudFront with custom domains on Route 53 and WAF protection.',
+ imp:'A repeatable, automated path from build to users for frontend and WebGL releases.',
+ tech:['Amplify','S3','CloudFront','Route 53','WAF','GitHub Actions'],
+ dg:[['Static and WebGL delivery',[[['GitHub','Source for the frontend or game build'],['Build Pipeline','Automated build and publish'],['S3','Stores the built assets'],['CloudFront','Content delivery to users'],['Users','Players and visitors']]]]]},
+{n:'Multi-Cloud IoT Infrastructure',w:'IoTfy Solutions · 2024 – 2025',
+ ctx:'IoT workloads that needed scalable ingestion and processing across both AWS and Azure.',
+ role:'Designed and deployed cloud infrastructure on AWS and Azure, automated provisioning, and built serverless data processing pipelines.',
+ app:'Device telemetry flows into cloud ingestion services, is processed by serverless functions, stored in analytics-ready storage, and monitored end to end. Provisioning is automated with Terraform, CloudFormation and SAM.',
+ imp:'Repeatable multi-cloud infrastructure, serverless processing for telemetry, and monitoring and IAM controls across both clouds.',
+ tech:['AWS','Azure','Terraform','CloudFormation','AWS SAM','Lambda','Kinesis','IoT Hub','Function Apps'],
+ dg:[['Telemetry pipeline',[[['IoT Devices','Source of telemetry'],['IoT Hub / Cloud Services','Device connectivity and ingestion'],['Data Ingestion','Receives incoming telemetry'],['Kinesis / Processing','Streaming data processing'],['Lambda / Functions','Serverless transformation'],['Storage','Analytics-ready storage'],['Monitoring','CloudWatch, Azure Monitor, Application Insights'],['Analytics','Downstream analysis']]]]]},
+{n:'E-Commerce Cloud Infrastructure Automation',w:'Techriffs Info Systems · 2022 – 2024',
+ ctx:'An e-commerce platform that needed automated infrastructure, build pipelines and monitoring.',
+ role:'Built Jenkins pipelines, Docker deployments, modular Terraform for AWS, and Prometheus and Grafana monitoring, working with development and QA teams.',
+ app:'Modular Terraform defines AWS infrastructure; Jenkins builds, scans and containerizes the application; Prometheus and Grafana provide visibility.',
+ imp:'Automated, repeatable infrastructure and releases, with better visibility into the running platform.',
+ tech:['AWS','Terraform','Jenkins','Docker','SonarQube','Prometheus','Grafana'],
+ dg:[['Infrastructure and monitoring',[[['Terraform Modules','Reusable infrastructure definitions'],['AWS','Provisioned infrastructure'],['Docker Containers','Application workloads'],['Prometheus','Metrics collection'],['Grafana','Dashboards and visibility']]]]]}];
+const cn=$('#casenav'),cb=$('#casebox');
+cn.innerHTML=CASES.map((c,i)=>`<button class="cn" data-i="${i}"><small>0${i+1}</small>${c.n}</button>`).join('');
+function showCase(i){const c=CASES[i];[...cn.children].forEach((b,k)=>b.classList.toggle('on',k==i));
+ cb.innerHTML=`<h3>${c.n}</h3><span class="where">${c.w}</span>
+ <div class="cgrid"><div><h5>Problem / Context</h5><p>${c.ctx}</p></div><div><h5>My Role</h5><p>${c.role}</p></div><div><h5>Engineering Approach</h5><p>${c.app}</p></div><div><h5>Result / Impact</h5><p>${c.imp}</p></div></div>
+ <div class="tags" style="margin-bottom:26px">${c.tech.map(t=>`<span>${t}</span>`).join('')}</div>
+ ${c.dg.map(d=>diagram(d[0],d[1])).join('')}`;
+ bind(cb);const d=cb.querySelector('.dg');io.observe(d);requestAnimationFrame(()=>{const r=d.getBoundingClientRect();if(r.top<innerHeight)d.classList.add('in')})}
+cn.onclick=e=>{const b=e.target.closest('.cn');if(b)showCase(+b.dataset.i)};
+showCase(0);
+
+/* terminal */
+const TL=[['whoami','krishna-prakash'],['role','DevOps Engineer'],['experience','4.5+ years'],['cloud','AWS / Azure'],['focus','Automation / Infrastructure / Reliability']];
+const term=$('#term');let started=false;
+function runTerm(){if(started)return;started=true;let i=0;startLogs();
+ (function next(){if(i>=TL.length){term.insertAdjacentHTML('beforeend','<div><span class="c">$</span> <span class="cur-b"></span></div>');return}
+  const [cmd,out]=TL[i++];const line=document.createElement('div');line.innerHTML='<span class="c">$</span> <span class="t"></span><span class="cur-b"></span>';term.appendChild(line);
+  let k=0;const t=line.querySelector('.t');const iv=setInterval(()=>{t.textContent+=cmd[k++];if(k>=cmd.length){clearInterval(iv);line.querySelector('.cur-b').remove();const o=document.createElement('div');o.className='o';o.textContent=out;term.appendChild(o);setTimeout(next,380)}},55)})()}
+new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){runTerm();o.disconnect()}},{threshold:.4}).observe(term);
+
+/* sample CI log stream (illustrative) */
+function startLogs(){const box=$('#logs');if(!box)return;
+ const L=[['ok','pipeline #482 passed · build 1m 12s'],['ok','terraform plan · no drift detected'],['ok','ecs service stable · 3/3 tasks healthy'],['info','cloudfront cache invalidated'],['ok','deploy to production complete'],['info','cloudwatch · all alarms OK'],['ok','image pushed to registry'],['info','autoscaling · desired capacity 4'],['ok','smoke tests passed · 24/24'],['info','prometheus scrape · targets up']];
+ let k=0;const add=()=>{const a=L[k++%L.length],d=document.createElement('div');d.className='lg '+a[0];
+  d.innerHTML='<em>'+new Date().toTimeString().slice(0,8)+'</em>'+(a[0]==='ok'?'<b>✓</b> ':'<u>•</u> ')+a[1];
+  box.appendChild(d);while(box.children.length>9)box.firstChild.remove()};
+ for(let i=0;i<7;i++)add();
+ if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(add,1800)}
+
+/* notes + services */
+
+/* form */
+$('#cf').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);location.href=`mailto:krishnapraksh@outlook.com?subject=${encodeURIComponent('Website enquiry from '+f.get('name'))}&body=${encodeURIComponent(f.get('message')+'\n\n— '+f.get('name')+' ('+f.get('email')+')')}`};
+
+/* hero prompt typing */
+(()=>{const el=$('#whoami');if(!el)return;const t='whoami';let i=0;
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.textContent=t;return}
+setTimeout(function k(){el.textContent=t.slice(0,++i);if(i<t.length)setTimeout(k,110)},500)})();
+
+/* deploy progress bar in nav */
+(()=>{const p=$('#prog');if(!p)return;const u=()=>{const m=document.documentElement.scrollHeight-innerHeight;p.style.width=(m>0?scrollY/m*100:0)+'%'};
+addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u()})();
+
+/* stat count-up */
+(()=>{const bs=document.querySelectorAll('.m b[data-n]');if(!bs.length)return;
+const run=b=>{const n=+b.dataset.n,d=+b.dataset.dec,sfx=b.dataset.sfx||'';
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches){b.textContent=n.toFixed(d)+sfx;return}
+ const t0=performance.now();(function st(t){const q=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-q,3);b.textContent=(n*e).toFixed(d)+sfx;if(q<1)requestAnimationFrame(st)})(t0)};
+const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run(e.target);o.unobserve(e.target)}}),{threshold:.6});bs.forEach(b=>o.observe(b))})();
+
+/* mobile menu */
+(()=>{const b=$('#burger'),l=$('#links');if(!b)return;
+b.onclick=()=>{const o=l.classList.toggle('open');b.classList.toggle('on',o);b.setAttribute('aria-expanded',o)};
+l.addEventListener('click',e=>{if(e.target.tagName==='A'){l.classList.remove('open');b.classList.remove('on');b.setAttribute('aria-expanded',false)}})})();
+
+/* flow bar + init */
+document.querySelectorAll('.flow').forEach(f=>io.observe(f));
+watch();
+
+/* sidebar scroll-spy */
+(()=>{const ls=[...document.querySelectorAll('.links a')],m=new Map(ls.map(a=>[a.getAttribute('href').slice(1),a]));
+const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){ls.forEach(a=>a.classList.remove('on'));const a=m.get(e.target.id);if(a)a.classList.add('on')}}),{rootMargin:'-40% 0px -55% 0px'});
+m.forEach((a,id)=>{const el=document.getElementById(id);if(el)o.observe(el)})})();
+</script>
+</body>
+</html>
